@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+          ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- 
+        include('../../secciones_sistema/nav_bar_encargado.ejs', 
+          { nombreUsuario: usuario.nombreUsuario,
+          nombreImgUsuario: usuario.nombreImgUsuario,
+          idUsuario:usuario.idUsuario,}
+              ); 
+        %>
+        <div class="cont_reg">
+            <div class="cont_inp">
+                <legend>Registrar Equipo</legend>
+                <div class="nav-bar-item">
+                  <label for="">Introduza el modelo del equipo:</label>
+                  <input type="text" id="nombre_modelo">
+                </div>
+                <div class="nav-bar-item">
+                  <label for="">Marca del Equipo:</label>
+                  <select id="idMarca" name="idMarca">;
+                      <% for (let i = 0; i<datosMarca.length; i++){%>
+                        <option value="<%=datosMarca[i].id %>"><%=datosMarca[i].nombre %></option>;
+                      <%}%>
+                  </select>
+                </div>
+                <div class="nav-bar-item">
+                  <label for="">Tipo de electrodomestico:</label>
+                <select id="idElectrodomestico" name="idElectrodomestico">
+                  <% for (let i = 0; i<datosEle.length; i++){%>
+                      <option value="<%=datosEle[i].id %>"><%=datosEle[i].nombre %></option>
+                  <%}%>
+                </select>
+                </div>
+            </div>
+            <div class="cont">
+                <legend>Buscar Cliente</legend>
+                <form id="formBuscarCliente" onsubmit="mostrarCliente(); return false;">
+                      <input type="text" name="codigo" autocomplete="off" id="codigoCliente"
+                  placeholder="Carné del cliente"
+                  required>
+                      <input type="submit" value="Buscar">
+                </form>
+                <div id="container">
+
+                </div>
+            </div>
+        </div>  
+    </main>
+<script src="/js/interaccion_contenido_registrar_equipo.js"></script>
+</body>
+</html>
+                     

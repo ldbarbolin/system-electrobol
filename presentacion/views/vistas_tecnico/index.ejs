@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+        ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+      <%- 
+      include('../secciones_sistema/nav_bar_tecnico.ejs', 
+        { nombreUsuario: usuario.nombreUsuario,
+        nombreImgUsuario: usuario.nombreImgUsuario,
+        idUsuario:usuario.idUsuario,}
+            ); 
+      %>
+      <div class="home_content">
+        <legend>Listado de Asignaciones</legend>
+        <div class="content" id="content">
+          <table>
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Codigo_Tecnico</th>
+                <th>Codigo_Equipo</th>
+                <th>Nombre_Equipo</th>
+                <th>Acciones</th> <!-- Nueva columna para los botones -->
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < datosAsignacion.length; i++) { %>
+              <tr>
+                <td><%= datosAsignacion[i].id_asignacion %></td>
+                <td><%= datosAsignacion[i].id_tecnico %></td>
+                <td><%= datosAsignacion[i].id_equipo %></td>
+                <td><%= datosAsignacion[i].nombre_electrodomestico %></td>
+                <td>
+                  <a href="tecnico/registrar_evaluacion?id=<%= datosAsignacion[i].id_asignacion %>"> <button id="btn_a">Evaluar</button>
+                  </a>
+                
+                  <!-- <button id="btn_r">Finalizar</button> -->
+                </td>
+              
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+          <legend>Listado de Reparaciones</legend>
+          <table>
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Codigo_Tecnico</th>
+                <th>Codigo_Equipo</th>
+                <th>Nombre_Equipo</th>
+                <th>Acciones</th> <!-- Nueva columna para los botones -->
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < datosReparacion.length; i++) { %>
+              <tr>
+                <td><%= datosReparacion[i].id_asignacion %></td>
+                <td><%= datosReparacion[i].id_tecnico %></td>
+                <td><%= datosReparacion[i].id_equipo %></td>
+                <td><%= datosReparacion[i].nombre_electrodomestico %></td>
+                <td>
+                  <a href="tecnico/registrar_avance?id=<%= datosReparacion[i].id_asignacion %>"> <button id="btn_a">Registrar Avance</button>
+                  </a>
+                  <!-- <button id="btn_r">Finalizar</button> -->
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+</body>
+</html>

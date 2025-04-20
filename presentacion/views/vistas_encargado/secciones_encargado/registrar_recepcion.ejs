@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+          ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- 
+        include('../../secciones_sistema/nav_bar_encargado.ejs', 
+          { nombreUsuario: usuario.nombreUsuario,
+          nombreImgUsuario: usuario.nombreImgUsuario,
+          idUsuario:usuario.idUsuario,}
+              ); 
+        %>
+        <div class="contenedor">
+            <legend>Registrar Recepcion</legend>
+            <form id="formBuscarCliente" onsubmit="mostrarCliente(); return false;">
+                <input type="text" name="codigo" autocomplete="off" id="codigoCliente"
+                placeholder="Carné del cliente"
+                required>
+                <input type="submit" value="Buscar">
+            </form>
+            <div id="container">
+      
+            </div>
+        </div>
+    </main>
+    <script src="/js/interaccion_contenido_recepcion.js"></script>
+</body>
+</html>

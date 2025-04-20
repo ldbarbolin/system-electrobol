@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@900&display=swap');
+
+:root{
+    /*VARIABLES CSS---------------------*/
+    --color-bg: #e5e4e2;
+    --color-primary: #162b27;
+    --color-secondary: #414a4c;
+    --color-terciary:a8d5e2;
+    --color-white:#f5f5f5;
+    --color-dark:#161616;
+    --color-dark-hover:#949494;
+    --color-alert:#e93339;
+    --color-alert-secondary: #b3282c;
+    --color-bt-venta:#c0ff6e;
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Julius Sans One', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color:var(--text-color);
+}
+a:visited{
+    color:var(--text-color);
+}
+h1{
+    font-weight: bold;
+}
+hr{
+    background-color: #EFF1F8;
+}
+.hr_vertical{
+  background-color: #949494;
+  width: 1px;
+  height: 99%;
+  border-radius: 10px;
+  margin: 10px 5px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 5% 95%;
+}
+.header{
+    display: flex;
+    background-color: var(--color-primary);
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    width: 100%;
+    height: 120px;
+}
+.content .nav_content{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: var(--color-primary);
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.content .nav_content .nav-options{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+.content .nav_content .nav-options .perfil-item{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    font-weight: bold;
+    font-size: 16px;
+    justify-content: center;
+    height: 100%;
+}
+.content .nav_content .nav-options .perfil-item img{
+    height: 100px;
+    padding-left: 20%;
+}
+.content .nav_content .nav-options .perfil-item span{
+    text-align: center;
+    padding-top: 15%;
+}
+.content .nav_content .nav-options .nav-option-item{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-weight: bold;
+    height: 100%;
+}
+.content .nav_content .nav-bar{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    font-weight: bold;
+    height: 100%;
+    text-align: center;
+}
+.content .nav_content .nav-bar-item{
+    height: 75%;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid white;
+    padding-top: 25%;
+}
+.content .nav_content .nav-bar-item a{
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color:var(--text-color);
+}
+.content .nav_content .nav-bar-item:hover{
+    background: var(--color-secondary);
+    border-bottom: 5px solid white;
+    
+}
+.main{
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+.main .contenedor{
+    display: grid;
+    grid-template-rows: 15% 15% 70%; 
+}
+.main .contenedor legend{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+}
+.main .contenedor #formBuscarCliente{
+    background-color: var(--color-bg);
+    padding: 2%;
+}
+
+.main .contenedor #formBuscarCliente input{
+    width: 20%;
+    padding: 10px 10px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--color-dark-hover);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    background: transparent;
+    border-radius: 4px;
+}
+.main .contenedor #formBuscarCliente input:hover{
+    border-color: #161616;
+    background-color: white;
+}
+.main .contenedor #formBuscarCliente input[type="submit"]{
+    width: 10%;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+}
+  
+input[type="submit"]:hover{
+    background: var(--color-secondary);
+}
+.main .contenedor #formBuscarCliente input[type="submit"]:hover{
+    background: var(--color-secondary);
+}
+.main .contenedor #container{
+    background: var(--color-bg);
+    padding-left: 2%;
+}
+.main .contenedor #container table{
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .contenedor #container label{
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .contenedor #container select{
+    width: 20%;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .contenedor #container button{
+    width: 10%;
+    height: 8%;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+ 
+.main .contenedor #container button:hover{
+    background: var(--color-secondary);
+}
+.main .center {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    justify-content: center;
+}
+.main .center legend{
+    width: 50%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    text-align: center;
+}
+.main .center table thead th{
+    width: 305px;
+    border-bottom:1px solid var(--color-dark) ;
+    background-color: var(--color-bg);
+    
+}
+.main .center table tbody td{
+    text-align: center;
+    border-bottom:1px solid var(--color-dark) ;
+}
+
+.main .center table a{
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+.main .center a:hover{
+    background: var(--color-secondary);
+}
+
+.main .evaluacion {
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    justify-content: center;
+}
+.main .evaluacion legend{
+    width: 70%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.main .evaluacion .t-cuerpo thead th{
+    width: 430px;
+    border-bottom:1px solid var(--color-dark) ;
+    background-color: var(--color-bg);
+    
+}
+.main .evaluacion .t-cuerpo tbody td{
+    text-align: center;
+    border-bottom:1px solid var(--color-dark) ;
+    
+}
+
+.main .evaluacion .t-cuerpo button{
+    width: 100%;
+    height: 30px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+.main .evaluacion button:hover{
+    background: var(--color-secondary);
+}
+
+.content .nav_content .nav-options-t{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+.content .nav_content .nav-options-t .perfil-t{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    font-weight: bold;
+    font-size: 16px;
+    justify-content: center;
+    height: 100%;
+}
+.content .nav_content .nav-options-t .perfil-t img{
+    height: 100px;
+    padding-left: 20%;
+}
+.content .nav_content .nav-options-t .perfil-t span{
+    text-align: center;
+    padding-top: 30%;
+}
+.content .nav_content .nav-options-t .nav-option-item-t{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-weight: bold;
+    height: 100%;
+}
+.content .nav_content .nav-bar-t{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    font-weight: bold;
+    height: 100%;
+    text-align: center;
+}
+.content .nav_content .nav-bar-item-t{
+    height: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid white;
+    padding-top: 15%;
+}
+.content .nav_content .nav-bar-item-t a{
+    text-decoration: none;
+    color:var(--text-color);
+}
+.content .nav_content .nav-bar-item-t:hover{
+    background: var(--color-secondary);
+    border-bottom: 5px solid white;
+    
+}
+.main .home_content {
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    justify-content: center;
+}
+.main .home_content legend{
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.main .home_content thead th{
+    width: 10%;
+    border-bottom:1px solid var(--color-dark) ;
+    background-color: var(--color-bg);
+    
+}
+.main .home_content tbody td{
+    text-align: center;
+    border-bottom:1px solid var(--color-dark) ;
+    
+}
+
+.main .home_content button{
+    width: 100%;
+    height: 30px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+.main .home_content button:hover{
+    background: var(--color-secondary);
+}
+.main .evaluando {
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    justify-content: center;
+}
+.main .evaluando legend{
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 1%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+    text-align: center;
+}
+.main .evaluando .formulario_sistema{
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 1%;
+    color: var(--color-dark);
+    margin-bottom: 2%;
+}
+.main .evaluando .formulario_sistema .box-eva{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.main .evaluando .formulario_sistema .box-eva input{
+    font-size: 30px;
+    border-radius: 5px;
+}
+.main .evaluando .formulario_sistema .box-eva select{
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.main .evaluando .formulario_sistema thead th{
+    width: 10%;
+    border-bottom:1px solid var(--color-dark) ;
+    background-color: var(--color-bg);
+    
+}
+.main .evalundo .formulario_sistema tbody td{
+    text-align: center;
+    border-bottom:1px solid var(--color-dark) ;
+    
+}
+
+.main .evaluando input[type="submit"]{
+    width: 20%;
+    height: 30px;
+    font-size: 20px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+.main .evaluando input[type="submit"]:hover{
+    background: var(--color-secondary);
+}
+
+.main .evaluando thead th{
+    width: 10%;
+    border-bottom:1px solid var(--color-dark) ;
+    background-color: var(--color-bg);
+}
+.main .evaluando tbody td{
+    border-bottom:1px solid var(--color-dark) ;
+    text-align: center;
+}
+
+.main .evaluando table button{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+
+.main .cont_reg{
+    display: grid;
+    grid-template-rows: 40% 60%; 
+}
+.main .cont_reg legend{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+}
+.main .cont_reg .cont_inp .nav-bar-item{
+    padding-left: 2%;
+    padding-top: 1%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main .cont_reg .cont_inp input{
+    width: 20%;
+    padding: 10px 10px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--color-dark-hover);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    background: transparent;
+    border-radius: 4px;
+}
+.main .cont_reg .cont_inp select{
+    width: 20%;
+    padding: 10px 10px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--color-dark-hover);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    background: transparent;
+    border-radius: 4px;
+}
+
+.main .cont_reg #formBuscarCliente{
+    background-color: var(--color-bg);
+    padding: 2%;
+}
+
+.main .cont_reg #formBuscarCliente input{
+    width: 20%;
+    padding: 10px 10px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--color-dark-hover);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    background: transparent;
+    border-radius: 4px;
+}
+.main .cont_reg #formBuscarCliente input:hover{
+    border-color: #161616;
+    background-color: white;
+}
+.main .cont_reg #formBuscarCliente input[type="submit"]{
+    width: 10%;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+}
+  
+input[type="submit"]:hover{
+    background: var(--color-secondary);
+}
+.main .cont_reg #formBuscarCliente input[type="submit"]:hover{
+    background: var(--color-secondary);
+}
+.main .cont_reg #container{
+    background: var(--color-bg);
+    padding-left: 2%;
+}
+.main .cont_reg #container table{
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .cont_reg #container label{
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .cont_reg #container select{
+    width: 20%;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.main .cont_reg #container button{
+    width: 10%;
+    height: 30px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    border:none;
+    border-radius: 5px;
+}
+ 
+.main .cont_reg #container button:hover{
+    background: var(--color-secondary);
+}

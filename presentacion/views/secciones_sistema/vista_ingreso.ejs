@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <%- 
+  include('head', 
+          { styleFileName: 'login_style.css', 
+            pageTitle: 'ElectroBol Ingreso' }
+        ); 
+  %>
+<body>
+  <section>
+    <div class="cont_log">
+      <h2 id="caja-login">Ingresar</h2>
+      <form action="/ingreso" method="post" onsubmit="return validarEntradas()">
+        
+        <div class="input_caja">
+          <span>Nombre de usuario</span>
+          <input name="nombreUsuario" type="text" placeholder="Introduce nombre de usuario" autocomplete="off" pattern="[a-zA-Z_]+" autofocus required />
+          <div class="mensaje-error">
+              Sólo letras y guion bajo
+          </div>
+        </div>
+        <div class="input_caja">
+          <span>Contraseña</span>
+          <input name='contrasena' type='password' placeholder='Introduce contraseña' autocomplete="off" required/>
+        </div>
+        <div class="input_caja">
+          <input value="Ingresar" type="submit" class="logear" id="btn_loguear"/>
+        </div>
+        <% if (typeof mensaje !== 'undefined') { %>
+          <div id="mensaje_respuesta">
+            Credenciales invalidas
+          </div>
+        <% } %>
+      </form>
+    </div>
+    <div class="caja_img">
+      <img src="../img/background_login.jpg" alt="">
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+        ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- 
+            include('../secciones_sistema/nav_bar_tecnico.ejs', 
+            { nombreUsuario: usuario.nombreUsuario,
+            nombreImgUsuario: usuario.nombreImgUsuario,
+            idUsuario:usuario.idUsuario,}
+            ); 
+        %>
+        <div class="evaluando">
+            <legend>Registrar Evaluacion</legend>
+            <form id="formularioReg"  class="formulario_sistema">
+                <div class="box-eva">
+                    <label for="username">
+                          Observaciones : 
+                          <abbr title="required" aria-label="required">*</abbr>
+                    </label>
+                    <input type="text" name="observacion" id="box" required />
+                </div>
+                <div class="box-eva">
+                    <label for="username">
+                          Tiempo Reparacion hrs: 
+                          <abbr title="required" aria-label="required">*</abbr>
+                    </label>
+                    <input type="number" name="tiemporepa" min="0" required />
+                </div>
+    
+                <div class="box-eva">
+                    <label for="username">
+                            Costo : 
+                          <abbr title="required" aria-label="required">*</abbr>
+                    </label>
+                    
+                    <input type="number" name="costo" min="0" required readonly/>
+                </div>    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre Repuesto</th>
+                            <th>Cantidad</th>
+                            <th>Valor</th>
+                            <th>Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBodyRepuestosNecesarios">
+                   
+                    </tbody>
+                </table>
+                <div>
+                    <input type="hidden" name="id" value="<%=idReparacion %>" />
+                </div>
+                <div>
+                    <input type="submit" value="Registrar Evaluacion">
+                </div>
+            </form>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Nombre Repuesto</th>
+                    <th>Cantidad</th>
+                    <th>Valor</th>
+                    <th>Añadir</th> <!-- Nueva columna para los botones -->
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (let i = 0; i < datosRepuesto.length; i++) { %>
+                  <tr>
+                    <td><%= datosRepuesto[i].id_repuesto %></td>
+                    <td><%= datosRepuesto[i].nombre %></td>
+                    <td><%= datosRepuesto[i].cantidad %></td>
+                    <td><%= datosRepuesto[i].valor %></td>
+                    <td>
+                      <button onclick="btClickAdicionar('<%= datosRepuesto[i].id_repuesto %>', '<%= datosRepuesto[i].nombre %>', '<%= datosRepuesto[i].valor %>')">Añadir</button>
+                      <!-- <button id="btn_r">Finalizar</button> -->
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+        </div>
+    <script src="/js/interaccion_registrar_evaluacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- Routes option nav -->
+<div class="content">
+    <div class="nav_content">
+        <nav class="nav-options-t">
+            <div class="perfil-t nav-option-item background-white">
+                <img src="/img/<%= usuario.nombreImgUsuario %>" alt="Foto de perfil">
+                <span hidden="true" id="spnIdUsuario"><%= idUsuario %></span>
+                <span id="user-type">Tecnico</span>
+                <span name=""><%= usuario.nombre %></span>
+            </div>
+            <div class="nav-option-item-t">
+                <div class="nav-bar-item-t">
+                    <a href="" alt="Usuario">
+                        <i class='bx bxs-user'></i>
+                    Perfil
+                    </a>
+                </div>
+                <div class="nav-bar-item-t">
+                    <a href="">
+                        <i class='bx bxs-bell'></i>
+                    Notificaciones
+                    </a>
+                </div>
+            </div>
+        </nav>
+    <!-- Routes nav -->
+        <nav class="nav-bar-t">
+            <div class="nav-bar-item-t">
+                <a href="/tecnico">Inicio</a>
+            </div>
+            <div class="nav-bar-item-t">
+                <a href="/cerrar_sesion">
+                    <i class='bx bxs-exit' ></i>Salir de sistema
+                </a>
+             </div>
+        </nav>
+    </div>  
+</div>

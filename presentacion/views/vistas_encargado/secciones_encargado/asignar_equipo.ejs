@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+          ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- include('../../secciones_sistema/nav_bar_encargado.ejs', 
+            { nombreUsuario: usuario.nombreUsuario,
+                nombreImgUsuario: usuario.nombreImgUsuario,
+                idUsuario:usuario.idUsuario,
+            }); 
+        %>
+        <div id="container" class="center">
+            <legend>Equipos sin Asignar</legend>
+            <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Equipo</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tBodyRepuestosNecesarios">
+                    <% for (let i = 0; i < arrayEquiposSinAsignacion.length; i++) { %>
+                    <tr>
+                            <td><%= arrayEquiposSinAsignacion[i].id %></td>
+                            <td>
+                                <%= arrayEquiposSinAsignacion[i].tipoModelo_nombre %>
+                                <%= arrayEquiposSinAsignacion[i].marca_nombre %>
+                                <%= arrayEquiposSinAsignacion[i].modelo_nombre %>
+                            </td>
+                            <td>
+                                <a class="button_180px" href="asignar_equipo?id_recepcion=<%= arrayEquiposSinAsignacion[i].id_recepcion %>">Pasar a evaluacion</a>
+                            </td>
+                        </tr>
+                    <%}%>   
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="/js/interaccion_contenido_recepcion.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles_A.css', 
+              pageTitle: 'ElectroBol sistema' }
+        ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- 
+            include('../secciones_sistema/nav_admin.ejs', 
+                { nombreUsuario: usuario.nombreUsuario,
+                nombreImgUsuario: usuario.nombreImgUsuario,
+                idUsuario:usuario.idUsuario,}
+            ); 
+        %>
+        <div class="home_content">
+            <form action="reportes" method="post"> 
+                <div class="nav-bar-item">
+                    <label for="">Seleccionar Tecnico</label>
+                    <select name="tecnicos" id="">
+                        <% for (let i= 0;i < datosTecnico.length;i++){%>
+                        <option value="<%=datosTecnico[i].id%>"><%=datosTecnico[i].apellido_paterno%> <%=datosTecnico[i].apellido_materno%> <%=datosTecnico[i].nombre%>
+                        </option>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="nav-bar-item">
+                    <button type="submit" value="Filtrar">Traer Datos</button>
+                </div>
+            </form>
+            <legend>Listado de Reparaciones Asignadas</legend>
+            <div id="tab-asi">
+                
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Evitar que el formulario se envíe de forma tradicional
+                
+                const formData = new FormData(form);
+                const idTecnico = formData.get("tecnicos");
+    
+                fetch("/reportes", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ tecnicos: idTecnico }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.msg) {
+                        alert(data.msg);
+                    } else {
+                        const table = createTable(data);
+                        document.getElementById("tab-asi").innerHTML = ""; // Limpiar el contenido previo
+                        document.getElementById("tab-asi").appendChild(table); // Añadir la nueva tabla
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    
+        function createTable(data) {
+            const table = document.createElement("table");
+            const thead = document.createElement("thead");
+            const tbody = document.createElement("tbody");
+    
+            // Crear las cabeceras de la tabla
+            const headers = ["ID", "Marca", "Modelo", "Electrodoméstico", "Estado"];
+            const tr = document.createElement("tr");
+            headers.forEach(header => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                tr.appendChild(th);
+            });
+            thead.appendChild(tr);
+    
+            // Crear las filas de la tabla con los datos filtrados
+            data.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.nombre_marca}</td>
+                    <td>${item.nombre_modelo}</td>
+                    <td>${item.nombre_electrodomestico}</td>
+                    <td>${item.estado}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+    
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            return table;
+        }
+    </script>
+    
+</body>
+</html>
+

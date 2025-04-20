@@ -1,0 +1,43 @@
+<!-- Routes option nav -->
+<div class="content">
+    <div class="nav_content">
+        <nav class="nav-options">
+            <div class="perfil-item user-data nav-option-item background-white">
+                <img src="img/<%= usuario.nombreImgUsuario %>" alt="Foto de perfil">
+                <span hidden="true" id="spnIdUsuario"><%= idUsuario %></span>
+                <span id="user-type">Encargado</span>
+                <span name=""><%= nombreUsuario %></span>
+            </div>
+            <div class="nav-option-item">
+                <div class="nav-bar-item">
+                    <a href="" alt="Usuario">
+                        <i class='bx bxs-user'></i>Perfil
+                    </a>
+                </div>
+                <div class="nav-bar-item">
+                    <a href="">
+                        <i class='bx bxs-bell'></i>Notificaciones
+                    </a>
+                </div>
+            </div>
+        </nav>
+    <!-- Routes nav -->
+        <nav class="nav-bar">
+            <div class="nav-bar-item">
+                <a href="/encargado/"><i class='bx bxs-home'></i>Inicio</a>
+            </div>
+            <div class="nav-bar-item">
+                <a href="/encargado/registrar_equipo" <i class='bx bx-list-check'></i>Registrar equipo</a>
+            </div>
+            <div class="nav-bar-item">
+                <a href="/encargado/registrar_recepcion" <i class='bx bx-alarm-add'></i>Registrar recepción</a>
+            </div>
+            <div class="nav-bar-item">
+                <a href="/encargado/asignar_equipo"><i class='bx bx-user-check'></i>Asignar equipo a tecnico</a>
+            </div>
+            <div class="nav-bar-item">
+                <a href="/cerrar_sesion"><i class='bx bxs-exit'></i>Salir de sistema</a>
+            </div>
+        </nav>
+    </div>  
+</div>

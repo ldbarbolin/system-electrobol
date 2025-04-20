@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@900&display=swap');
+
+:root{
+    /*VARIABLES CSS---------------------*/
+    --color-bg: #e5e4e2;
+    --color-primary: #999;
+    --color-secondary: #ff3800;
+    --color-terciary:#161616;
+    --color-white:#f5f5f5;
+    --color-dark:#161616;
+    --color-dark-hover:#949494;
+    --color-alert:#e93339;
+    --color-alert-secondary: #b3282c;
+    --color-bt-venta:#c0ff6e;
+
+ /*tamaños de fuente-----------*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Julius Sans One', sans-serif;;
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 3.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+section .cont_log{
+    display: grid;
+    grid-template-rows: 20% 80%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg);
+}
+
+section .cont_log h2{
+  margin-top: 50%;
+  align-items: center;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: var(--h2-font-size);
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+section .cont_log form{
+  margin-top: -50%;
+}
+section .cont_log .input_caja{
+    margin-bottom: 20px;
+}
+section .cont_log .input_caja span{
+  font-size: 20px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+section .cont_log .input_caja input{
+  width: 100%;
+  padding: 10px 10px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid var(--color-dark-hover);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--color-dark);
+  background: transparent;
+  border-radius: 4px;
+}
+
+
+section .cont_log .input_caja input[type="submit"]{
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.4s;
+  border:none;
+}
+
+input[type="submit"]:hover{
+  background: var(--color-secondary);
+}
+section .cont_log .input_caja input[type="submit"]:hover{
+  background: var(--color-secondary);
+}
+
+section .cont_log .input_caja span a{
+  color: var(--color-terciary);
+  font-weight:900;
+  transition: 0.4s;
+}
+section .cont_log .input_caja span a:hover{
+  color: var(--color-secondary);
+}
+
+@media (max-width: 768px){
+  section .caja_img{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  section .cont_log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  section .cont_log{
+    width: 100%;
+    padding: 40px;
+    margin: 50px;
+  }
+}
+.mensaje-error {
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-alert-secondary);
+  display: none;
+}
+
+input:not(:focus):invalid ~ .mensaje-error {
+  display: block;
+}
+
+input[type="text"]:not(:focus):invalid {
+  border-color: var(--color-alert-secondary) !important;
+}
+
+#mensaje_respuesta{
+  font-family: 'Julius Sans One';
+  border: 1px solid var(--color-alert-secondary) !important;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #ffcfd0;
+  color: #b3282c;
+}
+
+section .caja_img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+section .caja_img:before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(200deg,var(--color-terciary),var(--color-primary));
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+section .caja_img img{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+        ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+        <%- 
+            include('../secciones_sistema/nav_bar_tecnico.ejs', 
+            { nombreUsuario: usuario.nombreUsuario,
+            nombreImgUsuario: usuario.nombreImgUsuario,
+            idUsuario:usuario.idUsuario,}
+            ); 
+        %>
+        <div class="evaluando">
+            <form action="/tecnico/registrar_avance" method="post" class="formulario_sistema">
+                <legend>Registrar Avance</legend>
+                <div class="box-eva">
+                    <label for="username">Descripcion:<abbr title="required" aria-label="required">*</abbr>
+                    </label>
+                    <input type="text" maxlength="255" name="descripcion" required />
+                </div>
+                <div class="box-eva">
+                    <label for="username">Estado Reparacion:</label>
+                    <select id="avance" name="avance">
+                        <option value="4" selected>Reparando</option>
+                        <option value="6">Terminado</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="hidden" name="id" value="<%=idReparacion %>" />
+                </div>
+                <div>
+                    <input type="submit" value="Registrar Avance">
+                </div>
+              </form>
+        </div>
+    </main>
+</body>
+</html>

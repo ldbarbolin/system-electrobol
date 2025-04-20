@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+          ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <main class="main">
+      <%- 
+    include('../../secciones_sistema/nav_bar_encargado.ejs', 
+      { nombreUsuario: usuario.nombreUsuario,
+      nombreImgUsuario: usuario.nombreImgUsuario,
+      idUsuario:usuario.idUsuario,}
+          ); 
+    %>
+      <div id="container" class="evaluacion">
+        <legend>Datos Equipo</legend>
+        <table class="t_encabezado">
+          <tr>
+            <th>Cliente</th>
+            <td>
+              <%= datosEquipo.cliente_nombre %> 
+              <%= datosEquipo.cliente_apellido_paterno %> 
+              <%= datosEquipo.cliente_apellido_materno %>
+            </td>
+          </tr>
+          <tr>
+            <th>Modelo equipo</th>
+            <td>
+              <%= datosEquipo.tipoModelo_nombre %> 
+              <%= datosEquipo.modelo_nombre %>
+            </td>
+          </tr>
+          <tr>
+            <th>Marca</th>
+            <td>
+              <%= datosEquipo.marca_nombre %> 
+            </td>
+          </tr>
+        </table>
+        <table class="t-cuerpo">
+          <thead>
+            <tr>
+              <th colspan="3" class="title_table">Técnicos</th>
+            </tr>
+            <tr>
+              <th>Nombre completo</th>
+              <th>Cantidad equipos trabajando</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < arrayTecnicos.length; i++) { %>
+               <tr>
+                 <td>
+                   <%= arrayTecnicos[i].nombre %>
+                   <%= arrayTecnicos[i].apellido_paterno %> 
+                   <%= arrayTecnicos[i].apellido_materno %>
+                     
+                 </td>
+                 <td>
+                   <%= arrayTecnicos[i].cantidad_asignaciones %>
+                   
+                 </td>
+                 <td>
+                   <button onclick="registrarAsignacion(<%= datosEquipo.id_recepcion %>,<%= arrayTecnicos[i].id_tecnico %>)">
+                     Pasar a evaluacion
+                   </button>
+                  
+                 </td>
+
+               </tr>
+            <% } %>
+          </tbody>
+        </table>
+        
+      </div>
+    </main>
+    <script src="/js/interaccion_contenido_recepcion.js"></script>
+</body>
+</html>

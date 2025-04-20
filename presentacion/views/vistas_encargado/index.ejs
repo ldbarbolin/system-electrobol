@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- 
+    include('../secciones_sistema/head.ejs', 
+            { styleFileName: 'styles.css', 
+              pageTitle: 'ElectroBol sistema' }
+          ); 
+    %>
+<body class="body">
+    <header class="header">
+        <h1>ELECTROBOL</h1>
+    </header>
+    <%- 
+    include('../secciones_sistema/nav_bar_encargado.ejs', 
+            { nombreUsuario: usuario.nombreUsuario,
+              nombreImgUsuario: usuario.nombreImgUsuario,
+              idUsuario:usuario.idUsuario,}
+          ); 
+    %>
+  
+</body>
+</html>
